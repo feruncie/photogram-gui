@@ -18,4 +18,18 @@ class PhotosController < ApplicationController
 
     render ({ :template => "photos_templates/show" })
   end 
+
+  def trash
+    the_id = params.fetch("trash_id")
+
+    matching_photos = Photo.where({ :id => the_id })
+
+    the_photo = matching_photos.at(0)
+
+    the_photo.destroy 
+
+    redirect_to("/photos")
+    #render({ :template => "photos_templates/trash" })
+  end 
+
 end 
