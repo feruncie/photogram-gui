@@ -68,4 +68,9 @@ class PhotosController < ApplicationController
 
   end 
 
+  def comment
+    
+  end 
+
+
 end 
