@@ -19,4 +19,17 @@ class UsersController < ApplicationController
     render({ :template => "user_templates/show"})
     #Parameters "path_username => anisa"
   end 
+
+  def create 
+    input_username = params.fetch("query_username")
+    
+
+    a_new_user = User.new
+    a_new_user.username = input_username
+    a_new_user.save
+
+    redirect_to("/users/" + a_new_user.username)
+    #render({ :template => "photos_templates/create"})
+  end 
+
 end 
