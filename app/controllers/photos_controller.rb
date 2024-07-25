@@ -70,7 +70,7 @@ class PhotosController < ApplicationController
 
   def comment
     input_comment = params.fetch("input_comment")
-    input_owner_id = params.fetch("input_author_id")
+    input_author_id = params.fetch("input_author_id")
     input_photo_id = params.fetch("input_photo_id")
     
     a_new_comment = Comment.new
@@ -83,7 +83,6 @@ class PhotosController < ApplicationController
 
 
     redirect_to("/photos/" + a_new_comment.photo_id.to_s)
-    #render({ :template => "photos_templates/create"})
 
   end 
 
