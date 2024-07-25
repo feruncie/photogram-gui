@@ -32,4 +32,20 @@ class UsersController < ApplicationController
     #render({ :template => "photos_templates/create"})
   end 
 
+  def update 
+      the_user_id = params.fetch("modify_id")
+  
+      matching_user = User.where({ :id => the_user_id})
+  
+      the_user = matching_user.at(0)
+  
+      input_username = params.fetch("input_username")
+      
+      the_user.username = input_username
+  
+      the_user.save
+  
+      redirect_to("/users/" + the_user.username)
+  end 
+
 end 
